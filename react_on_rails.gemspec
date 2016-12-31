@@ -26,6 +26,7 @@ Gem::Specification.new do |s|
   s.add_dependency "rainbow", "~> 2.1"
   s.add_dependency "rails", ">= 3.2"
   s.add_dependency "addressable"
+  s.add_dependency "yajl-ruby"
 
   s.add_development_dependency "bundler", "~> 1.10"
   s.add_development_dependency "rake", "~> 10.0"
@@ -43,16 +44,4 @@ Gem::Specification.new do |s|
   s.add_development_dependency "awesome_print"
   s.add_development_dependency "gem-release"
 
-  s.post_install_message = %(
-    React on Rails installed! See https://github.com/shakacode/react_on_rails for documentation
-    and source code.
-
-    You can email contact@shakacode.com for support questions or access to our public slack room.
-
-    For custom application development work or coaching on integrating React with Rails,
-    visit http://www.shakacode.com
-
-    For more information on the generators, run:
-      rails generate react_on_rails:install --help
-  )
 end
