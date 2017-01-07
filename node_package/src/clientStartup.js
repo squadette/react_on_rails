@@ -5,7 +5,6 @@ import ReactDOM from 'react-dom';
 import createReactElement from './createReactElement';
 import isRouterResult from './isCreateReactElementResultNonReactComponent';
 
-const REACT_ON_RAILS_COMPONENT_CLASS_NAME = 'js-react-on-rails-component';
 const REACT_ON_RAILS_STORE_ATTRIBUTE_NAME = 'data-js-react-on-rails-store';
 
 function findContext() {
@@ -50,7 +49,7 @@ function forEachByAttribute(fn, attributeName, railsContext) {
 }
 
 function forEachComponent(fn, railsContext) {
-  forEach(fn, REACT_ON_RAILS_COMPONENT_CLASS_NAME, railsContext);
+  forEach(fn, 'js-react-on-rails-component', railsContext);
 }
 
 function initializeStore(el, railsContext) {
