@@ -60,11 +60,11 @@ describe ReactOnRailsHelper, type: :helper do
     let(:id) { "App-react-component-0" }
 
     let(:react_definition_script) do
-      %(<script type="application/json" id="js-react-on-rails-component">{"component_name":"App","props":{"name":"My Test Name"},"trace":false,"dom_id":"App-react-component-0"}</script>).squish + "\n" + %(<div id="App-react-component-0"></div>).squish
+      %(<script type="application/json" class="js-react-on-rails-component">{"component_name":"App","props":{"name":"My Test Name"},"trace":false,"dom_id":"App-react-component-0"}</script>).squish
     end
 
     let(:react_definition_script_no_params) do
-      %(<script type="application/json" class="js-react-on-rails-component">{"component_name":"App","props":{},"trace":false,"dom_id":"App-react-component-0"}</script>).squish + "\n" + %(<div id="App-react-component-0"></div>).squish
+      %(<script type="application/json" class="js-react-on-rails-component">{"component_name":"App","props":{},"trace":false,"dom_id":"App-react-component-0"}</script>).squish
     end
 
     describe "API with component name only" do
