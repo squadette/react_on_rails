@@ -68,20 +68,15 @@ describe ReactOnRailsHelper, type: :helper do
             data-dom-id="#{id}"></div>).squish
     end
 
-    let(:react_definition_div_no_params) do
-      %(<div class="js-react-on-rails-component"
-            style="display:none"
-            data-component-name="App"
-            data-props="{}"
-            data-trace="false"
-            data-dom-id="#{id}"></div>).squish
+    let(:react_definition_script_no_params) do
+      %(<script type="application/json" class="js-react-on-rails-component">{"component_name":"App","props":{},"trace":false,"dom_id":"App-react-component-0"}</script>).squish + "\n" + %(<div id="App-react-component-0"></div>).squish
     end
 
     describe "API with component name only" do
       subject { react_component("App") }
       it { is_expected.to be_an_instance_of ActiveSupport::SafeBuffer }
       it { is_expected.to include react_component_div }
-      it { is_expected.to include react_definition_div_no_params }
+      it { is_expected.to include react_definition_script_no_params }
     end
 
     it { expect(self).to respond_to :react_component }
@@ -149,8 +144,8 @@ describe ReactOnRailsHelper, type: :helper do
     it { expect(self).to respond_to :redux_store }
 
     it { is_expected.to be_an_instance_of ActiveSupport::SafeBuffer }
-    it { is_expected.to start_with "<div" }
-    it { is_expected.to end_with "</div>" }
+    it { is_expected.to start_with "<script" }
+    it { is_expected.to end_with "</script>" }
     it { is_expected.to include react_store_div }
 
     context "with skip_display_none option true" do
