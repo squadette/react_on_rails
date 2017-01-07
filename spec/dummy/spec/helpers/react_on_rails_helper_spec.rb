@@ -91,35 +91,6 @@ describe ReactOnRailsHelper, type: :helper do
       it { is_expected.not_to include react_component_div }
       it { is_expected.to include react_definition_script }
     end
-
-    context "with skip_display_none option true" do
-      before { ReactOnRails.configuration.skip_display_none = true }
-
-      let(:react_definition_div_skip_display_none_true) do
-        "<div class=\"js-react-on-rails-component\"
-              data-component-name=\"App\"
-              data-props=\"{&quot;name&quot;:&quot;My Test Name&quot;}\"
-              data-trace=\"false\"
-              data-dom-id=\"#{id}\"></div>".squish
-      end
-
-      it { is_expected.to include react_definition_div_skip_display_none_true }
-    end
-
-    context "with skip_display_none option false" do
-      before { ReactOnRails.configuration.skip_display_none = false }
-
-      let(:react_definition_div_skip_display_none_false) do
-        "<div class=\"js-react-on-rails-component\"
-              style=\"display:none\"
-              data-component-name=\"App\"
-              data-props=\"{&quot;name&quot;:&quot;My Test Name&quot;}\"
-              data-trace=\"false\"
-              data-dom-id=\"#{id}\"></div>".squish
-      end
-
-      it { is_expected.to include react_definition_div_skip_display_none_false }
-    end
   end
 
   describe "#redux_store" do
@@ -142,23 +113,6 @@ describe ReactOnRailsHelper, type: :helper do
     it { is_expected.to start_with "<script" }
     it { is_expected.to end_with "</script>" }
     it { is_expected.to include react_store_div }
-
-    context "with skip_display_none option true" do
-      before { ReactOnRails.configuration.skip_display_none = true }
-
-      let(:react_store_definition_div_skip_display_none_true) do
-        %(<div class="js-react-on-rails-store"
-            data-store-name="reduxStore"
-            data-props="{&quot;name&quot;:&quot;My Test Name&quot;}"></div>).squish
-      end
-
-      it { is_expected.to include react_store_definition_div_skip_display_none_true }
-    end
-
-    context "with skip_display_none option false" do
-      before { ReactOnRails.configuration.skip_display_none = false }
-      it { is_expected.to include react_store_div }
-    end
   end
 
   describe "#server_render_js" do
