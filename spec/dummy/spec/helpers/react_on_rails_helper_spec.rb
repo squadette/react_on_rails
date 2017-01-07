@@ -59,13 +59,8 @@ describe ReactOnRailsHelper, type: :helper do
 
     let(:id) { "App-react-component-0" }
 
-    let(:react_definition_div) do
-      %(<div class="js-react-on-rails-component"
-            style="display:none"
-            data-component-name="App"
-            data-props="{&quot;name&quot;:&quot;My Test Name&quot;}"
-            data-trace="false"
-            data-dom-id="#{id}"></div>).squish
+    let(:react_definition_script) do
+      %(<script type="application/json" id="js-react-on-rails-component">{"component_name":"App","props":{"name":"My Test Name"},"trace":false,"dom_id":"App-react-component-0"}</script>).squish + "\n" + %(<div id="App-react-component-0"></div>).squish
     end
 
     let(:react_definition_script_no_params) do
@@ -85,7 +80,7 @@ describe ReactOnRailsHelper, type: :helper do
     it { is_expected.to start_with "<script" }
     it { is_expected.to match %r{</script>\s*$} }
     it { is_expected.to include react_component_div }
-    it { is_expected.to include react_definition_div }
+    it { is_expected.to include react_definition_script }
 
     context "with 'id' option" do
       subject { react_component("App", props: props, id: id) }
@@ -94,7 +89,7 @@ describe ReactOnRailsHelper, type: :helper do
 
       it { is_expected.to include id }
       it { is_expected.not_to include react_component_div }
-      it { is_expected.to include react_definition_div }
+      it { is_expected.to include react_definition_script }
     end
 
     context "with skip_display_none option true" do

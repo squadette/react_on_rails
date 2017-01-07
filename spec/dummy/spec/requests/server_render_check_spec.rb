@@ -69,7 +69,7 @@ describe "Server Rendering", :server_rendering do
     it "sets inMailer properly" do
       get client_side_hello_world_path
       html_nodes = Nokogiri::HTML(response.body)
-      expect(html_nodes.css("script#js-react-on-rails-context").content)
+      expect(html_nodes.at_css("script#js-react-on-rails-context").content)
         .to match("\"inMailer\":false")
     end
   end
