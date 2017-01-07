@@ -102,10 +102,7 @@ function render(el, railsContext) {
   const name = el_json.component_name;
   const domNodeId = el_json.dom_id;
   const props = el_json.props;
-    const trace = el_json.trace;
-
-    console.log("el: ", el);
-
+  const trace = el_json.trace;
 
   try {
     const domNode = document.getElementById(domNodeId);
