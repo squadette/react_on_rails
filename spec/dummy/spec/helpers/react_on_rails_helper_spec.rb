@@ -87,8 +87,8 @@ describe ReactOnRailsHelper, type: :helper do
     it { expect(self).to respond_to :react_component }
 
     it { is_expected.to be_an_instance_of ActiveSupport::SafeBuffer }
-    it { is_expected.to start_with "<div" }
-    it { is_expected.to match %r{</div>\s*$} }
+    it { is_expected.to start_with "<script" }
+    it { is_expected.to match %r{</script>\s*$} }
     it { is_expected.to include react_component_div }
     it { is_expected.to include react_definition_div }
 
