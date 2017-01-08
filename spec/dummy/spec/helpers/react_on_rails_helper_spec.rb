@@ -87,6 +87,10 @@ describe ReactOnRailsHelper, type: :helper do
 
       let(:id) { "shaka_div" }
 
+      let(:react_definition_script) do
+        %(<script type="application/json" class="js-react-on-rails-component">{"component_name":"App","props":{"name":"My Test Name"},"trace":false,"dom_id":"shaka_div"}</script>).squish
+      end
+
       it { is_expected.to include id }
       it { is_expected.not_to include react_component_div }
       it { is_expected.to include react_definition_script }
