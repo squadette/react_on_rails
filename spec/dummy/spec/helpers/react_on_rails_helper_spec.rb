@@ -100,11 +100,8 @@ describe ReactOnRailsHelper, type: :helper do
       { name: "My Test Name" }
     end
 
-    let(:react_store_div) do
-      %(<div class="js-react-on-rails-store"
-            style="display:none"
-            data-store-name="reduxStore"
-            data-props="{&quot;name&quot;:&quot;My Test Name&quot;}"></div>).squish
+    let(:react_store_script) do
+      %(<script type="application/json" data-js-react-on-rails-store="reduxStore">{"name":"My Test Name"}</script>).squish
     end
 
     it { expect(self).to respond_to :redux_store }
@@ -112,7 +109,7 @@ describe ReactOnRailsHelper, type: :helper do
     it { is_expected.to be_an_instance_of ActiveSupport::SafeBuffer }
     it { is_expected.to start_with "<script" }
     it { is_expected.to end_with "</script>" }
-    it { is_expected.to include react_store_div }
+    it { is_expected.to include react_store_script }
   end
 
   describe "#server_render_js" do
