@@ -35,18 +35,18 @@ before_install:
 install:
   - nvm install node
   - node -v
-  - npm i -g yarn@0.20.3
+  - npm i -g yarn@0.21.3
   - yarn
   - bundle install
-  - rake dummy_apps
-  - rake examples
+  - rake -j 0 dummy_apps
+  - rake -j 0 examples
   - rake node_package
 
 before_script:
   - "export DISPLAY=:99"
 
 script:
-  - rake
+  - rake -j 0
 
 notifications:
   slack:
