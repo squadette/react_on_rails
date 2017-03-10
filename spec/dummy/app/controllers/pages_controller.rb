@@ -31,19 +31,19 @@ class PagesController < ApplicationController
     @app_props_server_render = {
       helloWorldData: {
         name: "Mr. Server Side Rendering"
-      }
-    }.merge(xss_payload)
+      }.merge(xss_payload)
+    }
 
     @app_props_hello = {
       helloWorldData: {
         name: "Mrs. Client Side Rendering"
-      }
-    }.merge(xss_payload)
+      }.merge(xss_payload)
+    }
 
     @app_props_hello_again = {
       helloWorldData: {
         name: "Mrs. Client Side Hello Again"
-      }
-    }.merge(xss_payload)
+      }.merge(xss_payload)
+    }
   end
 end
