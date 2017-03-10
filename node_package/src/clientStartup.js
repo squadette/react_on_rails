@@ -42,10 +42,10 @@ function forEach(fn, className, railsContext) {
 }
 
 function forEachByAttribute(fn, attributeName, railsContext) {
- const els = document.querySelectorAll('[' + attributeName + ']');
+  const els = document.querySelectorAll(`[${attributeName}]`);
   for (let i = 0; i < els.length; i += 1) {
     fn(els[i], railsContext);
-  } 
+  }
 }
 
 function forEachComponent(fn, railsContext) {
@@ -97,11 +97,11 @@ DELEGATING TO RENDERER ${name} for dom node with id: ${domNodeId} with props, ra
  */
 function render(el, railsContext) {
   const context = findContext();
-  const el_json = JSON.parse(el.textContent);
-  const name = el_json.component_name;
-  const domNodeId = el_json.dom_id;
-  const props = el_json.props;
-  const trace = el_json.trace;
+  const jsonEl = JSON.parse(el.textContent);
+  const name = jsonEl.component_name;
+  const domNodeId = jsonEl.dom_id;
+  const props = jsonEl.props;
+  const trace = jsonEl.trace;
 
   try {
     const domNode = document.getElementById(domNodeId);
