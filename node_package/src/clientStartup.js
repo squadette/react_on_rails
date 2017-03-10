@@ -153,7 +153,7 @@ export function reactOnRailsPageLoaded() {
 
 function unmount(el) {
   const elData = JSON.parse(el.textContent);
-  const domNodeId = elData.data.dom_id;
+  const domNodeId = elData.dom_id;
   const domNode = document.getElementById(domNodeId);
   ReactDOM.unmountComponentAtNode(domNode);
 }
