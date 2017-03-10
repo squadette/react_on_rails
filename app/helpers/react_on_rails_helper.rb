@@ -6,7 +6,6 @@
 require "react_on_rails/prerender_error"
 require "addressable/uri"
 require "react_on_rails/utils"
-require "yajl"
 
 module ReactOnRailsHelper
   include ReactOnRails::Utils::Required
