@@ -5,8 +5,6 @@ import ReactDOM from 'react-dom';
 import createReactElement from './createReactElement';
 import isRouterResult from './isCreateReactElementResultNonReactComponent';
 
-const REACT_ON_RAILS_STORE_ATTRIBUTE_NAME = 'data-js-react-on-rails-store';
-
 function findContext() {
   if (typeof window.ReactOnRails !== 'undefined') {
     return window;
@@ -62,7 +60,7 @@ function initializeStore(el, railsContext) {
 }
 
 function forEachStore(railsContext) {
-  forEachByAttribute(initializeStore, REACT_ON_RAILS_STORE_ATTRIBUTE_NAME, railsContext);
+  forEachByAttribute(initializeStore, 'data-js-react-on-rails-store', railsContext);
 }
 
 function turbolinksVersion5() {
