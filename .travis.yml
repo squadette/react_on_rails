@@ -38,15 +38,15 @@ install:
   - npm i -g yarn@0.21.3
   - yarn
   - bundle install
-  - rake -j 0 dummy_apps
-  - rake -j 0 examples
+  - rake dummy_apps
+  - rake examples
   - rake node_package
 
 before_script:
   - "export DISPLAY=:99"
 
 script:
-  - rake -j 0
+  - rake
 
 notifications:
   slack:
