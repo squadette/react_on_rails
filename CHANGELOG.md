@@ -9,6 +9,7 @@ See [Upgrading React on Rails](./docs/basics/upgrading-react-on-rails.md) for mo
 Changes since last non-beta release.
 
 *Please add entries here for your pull requests that are not yet released.*
+- Handle <script async> for Webpack bundle transparently. Closes [issue #290](https://github.com/shakacode/react_on_rails/issues/290) [PR 1099](https://github.com/shakacode/react_on_rails/pull/1099) by [squadette](https://github.com/squadette).
 
 #### Changed
 - Document how to manually rehydrate XHR-substituted components on client side. [PR 1095](https://github.com/shakacode/react_on_rails/pull/1095) by [hchevalier](https://github.com/hchevalier).
